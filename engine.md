@@ -19,10 +19,27 @@ The goal of a metamorphic engine is to never have 2 times the same signature usi
 I've skkiped a lot of details that will be explained further.
 
 #### 2.1) Disassembly / Re-Assembly
-to do
+// to do
 
 #### 2.2 Metamorphic ofuscation
 After the study of metamorphic viruses and their engines i can conclude that (the 02/01/2021) there are 5 essentials methods used in metamorphism offuscation. I think is very reallistic to use the 5 in my future metamorphic virus implementation.
+
+Here's an example taken from a study from the virus Zperm:
+```
+Instruction 4                         Instruction 2                                 Instruction 2
+Instruction 5                         jmp                                           Instruction 4
+jmp                                   garbage                                       jmp
+gargage         -----------|\         Instruction 3     -------------|\             garbage
+start:                        \       jmp                               \           Instruction 5
+Instruction 1                 /       garbage                           /           jmp
+Instruction 2   -----------|/         Instruction 5     -------------|/             start:
+jmp                                   jmp                                           Instruction 1
+garbage                               start:                                        jmp 
+Instruction 3                         Instruction 1                                 garbage
+jmp                                   jmp                                           Instruction 2
+garbage                               Instruction 4                                 jmp
+                                      jmp                                           grabage
+```
 
 ##### 2.2.1 Register Swap
 This tecnique mutates the virus body in the simplest way: swapping the operand registers used by others that will remain the same. For example: 
