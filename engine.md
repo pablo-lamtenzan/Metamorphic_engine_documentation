@@ -36,7 +36,7 @@ This tecnique consist in reorder the virus subroutines. If a virus has N subrout
 ##### 2.2.3 Garbage Instruction Insertion
 This one is the most powerfull. There are 2 types of garbage instructions: the instructions who will be executed and those who will be skipped. Combining both the virus can achieve to have unlimited possible versions of itself.
 
-Grabage instructions purpose is to not change any data or contents used by general purpose registers, their purpose is to increase the diversity of instructions.
+Garbage instructions purpose is to not change any data or contents used by general purpose registers, their purpose is to increase the diversity of instructions.
 While using this tecnique, the effect of the garbage instruction on the ```RFLAGS``` registers must be considereted! Control flow uses bits located in the ```RFLAGS``` registers to choose the which code path to take. A bad use of garbage instruction can affect the behaviour of the execution of the next control flow instruction.
 Here's an example of simple dead instructions:
 ```
