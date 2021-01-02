@@ -13,4 +13,5 @@ The goal of a metamorphic engine is to never have 2 times the same signature usi
 - 3) Recreate new metaphormic ofuscation
 - 4) Assembly the ifself
 - 5) Inject itself
+
 I've skkiped a lot of details that will be explained further.
