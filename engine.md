@@ -42,5 +42,6 @@ add op1, op2 --------> add op3, op4
 add op2, op4 --------> add op1, op2
 ```
 
+The formalization of many existing tecniques is named Formal Grammar Mutation where any instruction can be followed by any other instruction but appying some grammar rules it can perform hight degree of metamorphism.
 
 
