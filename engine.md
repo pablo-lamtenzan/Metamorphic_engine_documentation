@@ -11,12 +11,12 @@ The goal of a metamorphic engine is to never have 2 times the same signature usi
 - 1) Disassembly itself (the virus body)
 - 2) Erase the the previous metamorphic ofuscation from the virus body
 - 3) Recreate new metaphormic ofuscation
-- 4) Assembly the ifself
+- 4) Re-Assembly the body
 - 5) Inject itself
 
 I've skkiped a lot of details that will be explained further.
 
-#### 2.1) Disassembly / Assembly
+#### 2.1) Disassembly / Re-Assembly
 to do
 
 #### 2.2 Metamorphic ofuscation
