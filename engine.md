@@ -60,7 +60,7 @@ Garbage instructions purpose is to not change any data or contents used by gener
 While using this tecnique, the effect of the garbage instruction on the ```RFLAGS``` registers must be considereted! Control flow uses bits located in the ```RFLAGS``` registers to choose the which code path to take. A bad use of garbage instruction can affect the behaviour of the execution of the next control flow instruction.
 Here's an example of simple dead instructions:
 ```
-// just more example about dead code/gargabe/junk injection
+// just more example about dead code / gargabe / junk injection
 
 1) ADD $0, %RAX
 2) ADD $0, %RBX
@@ -103,6 +103,12 @@ This tecnique consist to transpose instructions, that means that the instruction
 ```
 add op1, op2 --------> add op3, op4
 add op2, op4 --------> add op1, op2
+
+------------------------------------
+
+MOV %EAX, 0F ---------> ADD ESI, EBX
+PUSH %ECX ------------> PUSH %ECX
+ADD %ESI, %EBX -------> MOV %EAX, 0F
 ```
 
 ##### 2.2.6 Formal Grammar Mutation
