@@ -31,7 +31,7 @@ The second one is Subroutine Permutation, this tecnique consist in reorder the v
 
 The next one is one of the more powerfull: Garbage Instruction Insertion. There are 2 types of garbage instructions: the instructions who will be executed and those who will be skipped. Combining both the virus can achieve to have unlimited possible versions of itself.
 
-The forth one is Instruction Substitution, this tecnique consist to substitute a single instruction or a group of instructions by another instruction or group of intructions having the same functionality. This is one of the more complicated to implement cause the virus needs to find human synonyns. An example:
+The forth one is Instruction Substitution, this tecnique consist to substitute a single instruction or a group of instructions by another instruction or group of intructions having the same functionality. This is one of the more complicated to implement cause the virus needs to find human synonyms. An example:
 ```
 mov r1, r2 ------> push r1 [AND] pop r2
 ```
