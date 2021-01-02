@@ -41,7 +41,19 @@ This tecnique consist to substitute a single instruction or a group of instructi
 ```
 mov r1, r2 ------> push r1 [AND] pop r2
 ```
-
+The instructions ```mov``` and  ```xor``` are perfect to be substituated, this is why the apear in abundace in the binaries. The substitution can be performed by using a substitution table:
+```
+Instruction       |   Equivalent                        | Action
+                  |                                     |
+MOV IMG, %REG     |   XOR %REG, %REG ADD IMG, %REG      | null
+                  |                or                   |
+                  |   XOR %REG, %REG SUB -IMG, %REG     | null
+MOV %REG1, %REG2  |   XOR %REG2, %REG2 ADD %REG1, %REG2 | null
+MOV %REG1, (%REG2)|   MOV $0, (%REG2) ADD %REG1, (%REG2)| null
+MOV IMG, (%REG)   |   MOV $0, (%REG2) ADD IMG, (%REG2)  | null
+XOR %REG, %REG    |   MOV $0, %REG
+```
+                     
 ##### 2.2.5 Transposition
 This tecnique consist to transpose instructions, that means that the instructions that not depend from the other instructions or their order to be executed  can be re-ordered. Example:
 ```
