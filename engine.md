@@ -24,26 +24,32 @@ to do
 #### 2.2 Metamorphic ofuscation
 After the study of metamorphic viruses and their engines i can conclude that (the 02/01/2021) there are 5 essentials methods used in metamorphism offuscation. I think is very reallistic to use the 5 in my future metamorphic virus implementation.
 
-The first one is Register Swap, it mutates the virus body in the simplest way: swapping the operand registers used by others that will remain the same. For example: 
+##### 2.2.1 Register Swap
+This tecnique mutates the virus body in the simplest way: swapping the operand registers used by others that will remain the same. For example: 
 ```
 pop ecx -----> pop ebx
 ```
 
-The second one is Subroutine Permutation, this tecnique consist in reorder the virus subroutines. If a virus has N subroutines it can achieve to N-fragtorial different combinations using this tecnique. This tecnique is useful combinated with other tecniques, using a simple short-signature matcher is easy to detect a virus that only perform this offuscation method.
+##### 2.2.2 Subroutine Permutation
+This tecnique consist in reorder the virus subroutines. If a virus has N subroutines it can achieve to N-fragtorial different combinations using this tecnique. This tecnique is useful combinated with other tecniques, using a simple short-signature matcher is easy to detect a virus that only perform this offuscation method.
 
-The next one is one of the more powerfull: Garbage Instruction Insertion. There are 2 types of garbage instructions: the instructions who will be executed and those who will be skipped. Combining both the virus can achieve to have unlimited possible versions of itself.
+##### 2.2.3 Garbage Instruction Insertion
+This one is the most powerfull. There are 2 types of garbage instructions: the instructions who will be executed and those who will be skipped. Combining both the virus can achieve to have unlimited possible versions of itself.
 
-The forth one is Instruction Substitution, this tecnique consist to substitute a single instruction or a group of instructions by another instruction or group of intructions having the same functionality. This is one of the more complicated to implement cause the virus needs to find human synonyms. An example:
+##### 2.2.4 Instruction Substitution
+This tecnique consist to substitute a single instruction or a group of instructions by another instruction or group of intructions having the same functionality. This is one of the more complicated to implement cause the virus needs to find human synonyms. An example:
 ```
 mov r1, r2 ------> push r1 [AND] pop r2
 ```
 
-And finally the last one is Transposition, that means that the instructions that not deppend from the other instructions or their order to be executed  can be re-ordered. Example:
+##### 2.2.5 Transposition
+This tecnique consist to transpose instructions, that means that the instructions that not depend from the other instructions or their order to be executed  can be re-ordered. Example:
 ```
 add op1, op2 --------> add op3, op4
 add op2, op4 --------> add op1, op2
 ```
 
+##### 2.2.6 Formal Grammar Mutation
 The formalization of many existing tecniques is named Formal Grammar Mutation where any instruction can be followed by any other instruction but appying some grammar rules it can perform hight degree of metamorphism.
 
 
