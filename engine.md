@@ -13,5 +13,15 @@ The goal of a metamorphic engine is to never have 2 times the same signature usi
 - 3) Recreate new metaphormic ofuscation
 - 4) Assembly the ifself
 - 5) Inject itself
-
+Me he saltado muchos 
 I've skkiped a lot of details that will be explained further.
+
+#### 2.1) Disassembly / Assembly
+to do
+
+#### 2.2 Metamorphic ofuscation
+After the study of metamorphic viruses and their engines i can conclude that (the 02/01/2021) there are 5 essentials methods used in metamorphism offuscation. I think is very reallistic to use the 5 in my future metamorphic virus implementation.
+
+The first one is Register Swap, it mutates the virus body in the simplest way: swapping the operand registers used by others that will remain the same. For example: ```
+pop ecx -----> pop ebx
+```
