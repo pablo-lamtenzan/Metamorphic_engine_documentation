@@ -36,8 +36,11 @@ The forth one is Instruction Substitution, this tecnique consist to substitute a
 mov r1, r2 ------> push r1 [AND] pop r2
 ```
 
-And finally the last one is Transposition, that means that the instructions that not deppend from the other instructions or their order to be executed  can be re-ordered. 
-
+And finally the last one is Transposition, that means that the instructions that not deppend from the other instructions or their order to be executed  can be re-ordered. Example:
+```
+add op1, op2 --------> add op3, op4
+add op2, op4 --------> add op1, op2
+```
 
 
 
