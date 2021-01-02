@@ -34,7 +34,27 @@ pop ecx -----> pop ebx
 This tecnique consist in reorder the virus subroutines. If a virus has N subroutines it can achieve to N-fragtorial different combinations using this tecnique. This tecnique is useful combinated with other tecniques, using a simple short-signature matcher is easy to detect a virus that only perform this offuscation method.
 
 ##### 2.2.3 Garbage Instruction Insertion
-This one is the most powerfull. There are 2 types of garbage instructions: the instructions who will be executed and those who will be skipped. Combining both the virus can achieve to have unlimited possible versions of itself.
+This one is the most powerfull. There are 2 types of garbage instructions: the instructions who will be executed and those who will be skipped. Combining both the virus can achieve to have unlimited possible versions of itself. Here an example:
+```
+Instruction       |     Operation
+
+ADD %REG, 0       |     REG + 0
+SUB %REG, 0       |     REG - 0
+MOV %REG, %REG    |     REG = REG
+OR %REG, 1        |     REG | 1
+AND %REG -1       |     REG & -1
+...               |     ...
+
+-----------------------------------------
+
+PUSH CX
+... // code
+POP CX
+
+INC AX
+... // code
+DEC AX
+```
 
 Garbage instructions purpose is to not change any data or contents used by general purpose registers, their purpose is to increase the diversity of instructions.
 While using this tecnique, the effect of the garbage instruction on the ```RFLAGS``` registers must be considereted! Control flow uses bits located in the ```RFLAGS``` registers to choose the which code path to take. A bad use of garbage instruction can affect the behaviour of the execution of the next control flow instruction.
