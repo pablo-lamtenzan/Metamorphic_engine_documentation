@@ -22,6 +22,7 @@ to do
 #### 2.2 Metamorphic ofuscation
 After the study of metamorphic viruses and their engines i can conclude that (the 02/01/2021) there are 5 essentials methods used in metamorphism offuscation. I think is very reallistic to use the 5 in my future metamorphic virus implementation.
 
-The first one is Register Swap, it mutates the virus body in the simplest way: swapping the operand registers used by others that will remain the same. For example: ```
+The first one is Register Swap, it mutates the virus body in the simplest way: swapping the operand registers used by others that will remain the same. For example: 
+```
 pop ecx -----> pop ebx
 ```
