@@ -148,7 +148,7 @@ To shift opcodes, the program must meet two criteria.
 - The morph point must be beliveble to the disassambler
 
 ``` 
-// Taken from a447014.pdf p 53 and recommented to read !
+// Taken from a447014.pdf p 53 and is recomendated to read all the article!
 
 Morph points execution for 1000M iterations
 
@@ -164,7 +164,7 @@ MUST READ a447014.pdf starting at p52 to end this section!!!
 
 #### 3) More offuscation tecniques
 
-Metamorphism is a very powerfull ofuscation tool but need to have more offuscation tools to be useful like anti-disasembly or anti-debugging for protect the virus from static and dynamic threats.
+Metamorphism is a very powerfull ofuscation tool but need to be used with more offuscation tools to be useful like anti-disasembly or anti-debugging for protect the virus from static and dynamic threats.
 
 ##### 3.1) Anti-Assembly
 
