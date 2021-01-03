@@ -225,4 +225,14 @@ Other anti-debug tecniques don't use hooking, detection or ressource consumption
 
 ##### 3.3) Anti-emulation
 
+Emulation mimics the program execution. All modeling is necessarily incomplete, but an emulation is a low fidelity representation that focuses on primaly on modeling program behavior (not functionality). Simulation still imperfect, are hight fidelity representation of program execution on another plateform. Since is an incomplete model of program fuctionality, many oportunities exits to fool emulator.
 
+Anti-emulation tactics commonly uses "obscure functions" Many emulators do not model such fuctions and some even omit them entereky duting execution. An example could be coporcessor , MMX and undodumented CPU instructions. Another way do prevent emulators is to use denial-of-service (DOS) attacks emulator. Just need to use so many resources (like a backtraking decrytion, complex loops for build the key, etc ...) 
+
+##### 3.5) Anti-Heuristics
+
+Anti-virus developers developed heuristics scaners to detect new viruses without new virus signatures. As with intrussion detection systhems, the developpers chose a sensitivity low level enought to detect new viruses but hight enoght to minimize false positives. Commertial anti-virus products commonly uses heuristics such as the file infection area, because many viruses tend to infect the begining or the end of the files. However a scaner can not follow other infection startegies such as ```cavity``` or ```overwriting infections```.
+
+##### Anti-Goat (Anti-Bait)
+
+A goat file is file containg only ```NOP``` (No-Operate) instruction, is used to trick the virus to infect it. Since file is infected is possible to analyse the virus infection routine. To develop the anti-goat tecniques the virus need an heuristic analyser to select which file save to infect. 
