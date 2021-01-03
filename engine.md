@@ -211,4 +211,14 @@ Malware application commonly hooks interrumpt causing debugers to lose execution
 
 Other malware application uses checksum to to verify that the code executing in memory remain unchanged. The program calculate the a checksum of malware code and store it. Running the code in a debugger changes the code by inserting inserting software breakpoints (INT 3) ```0xCC``` of the first byte of assembly opcodes. he debugger must keep track of the replaced byte to continue execution correctly. Even thought replaced it replaced it replaces a byte of a instruction opcode, the debugger displays the correct byte to the user to readibilaty purposes. This additional byte changes the checksum in memory when the malware application attemps to verify its integrity. Viruses can use hardware debug registers (```DR0```-```DR7```) on Intel architectures to cause problems to some debugers. Indentically some virus are self-annealling, witch means the can detect and correct small errors (correct or disable breakpoint and thereby exibit anti-debugging characteristics (see Yankee Doodle virus)
 
+###### 3.2.3) Observing and using debuger ressources
+
+Another trick is to simply observe the top of the stack. Debuggers often push tracee information into the stack dutin their execution process. If a virus detect debugger information on the stack it may council itself by letting the infected program function normally. In addition of obserting the stack, some virus uses the stack to build their decryptation key or decrypt their program. If the debugger manipulates the stack the virus can no decrypt itsef so not exposed.
+
+###### 3.2.4) Debugger detection
+
+A dirrect aproach to invoque an operating systhem application fuction (hwo definition depends of architecture) to return a boolean indicatign wether the current program is running into a debugger. Althought to implement, this strategie is easy to detect by searching for key string. However using checksums of API functions instead of the fuction name itself, the malware program can be offustaced and avoid key string searches. Malware can also scan trough the registry for debugger keys and if find one act in a different manner like not executing all its code (to confuse).
+
+###### 3.2.5) Debugger offuscation
+
 
