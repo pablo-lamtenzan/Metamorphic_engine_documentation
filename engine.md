@@ -192,3 +192,23 @@ The exemple consist on inline assembly and a print stayment, the program perform
  The quality of the offuscations tactics can be mesurated by potency, resistence (against automated desoffuscator) , stealth (how is difficult to separe offuscate code form not offuscated) and cost (in the execution time). There are 4 categories of offuscation transformation: layout, data, control, preventive having each one their potency, resistance, stealth and cost. The goal of this categories are to mesure the level of offuscation. 
  
  This is interesting but i've writting this for educationals purposes and i need others humans to understand my work ...
+
+##### 3.3) Anti-debuging
+
+The goal of anti-debuging is to prevent reverse-engering software throught dynamic analysis. Degugger execute code within the debugger's controlled environment. Two basic features that debuggers offer are the ability to set a breakpoint where the execution program is interrumpted and where the dubugger regain control and the hability to step throught the program one instruction at a time.
+
+There are 2 types of breakpoints: software and hardware, when setting a software breakpoint the debugger usally replaces the first byte of an instruction in memory with a breakpoint interrumpt (INT 3) ```0xCC``` on a Intel procesor. When the process sees the ```0xCC``` it generates an interrumpt that the debugger catches, once received the debugger replaces the ```0xCC``` byte by the original byte and pausses the program execution for the user. For hardware breakpoints, the processor itself will hanlde them via the ```debug registers```. Since the processor manages the breakpoint the bedugger has not to set breakpoint interrumpt in the process memory space. However the process can manage a limited number of hardware breakpoints due limitations (limited number of debug registers).
+
+The debugger provides the fuctionality to step throught the program by enabling the processor trap flag (makes the processor to generate a single-step interrumpt after executing each instruction). The debugger can catch these instructions and regain the control allowing the user analyse the state of the debugge program. 
+
+Many anti-debuggers protections try to a cause the debugger to ```lose state```. As a debugger executes a program it must keep track of the program state (variables, registers values, stack content, ect...). However the debugger uses these ressources too, because the operating systhem shares this ressources among several tasks (multitasking). Since the debugger can not query the the systhem state while the target process (of the dbg) executes, it must rely on the state information that is has gathered. Anti-debug tecniques include any methods that debugger to lose or change any of its state information.
+
+###### 3.3.1) Debugger interrump manipulation
+
+Malware application commonly hooks interrumpt causing debugers to lose execution code's context. They achive that by loading themselves into memory and modifiying the interrumpt vector table (IVT) to point themselves instead of the normal interrumpt handler. This places the virus at the begining interrumpt call chain for that particular interrumpt. Viruses commonly hooks the single-step (INT 1) and breakpoint (INT 3) interrumpt. Other viruses overwrite the interrumpt handlers that debuggers uses normally for interrumpt return (IRET) instructions ultimately causing the debugger to lose state. Another defence could be desable the keyborad or store ressources in the keyborad buffer ...
+
+###### 3.3.2) Guardian againt debugger breakpoint
+
+Other malware application uses checksum to to verify that the code executing in memory remain unchanged. The program calculate the a checksum of malware code and store it. Running the code in a debugger changes the code by inserting inserting software breakpoints (INT 3) ```0xCC``` of the first byte of assembly opcodes. he debugger must keep track of the replaced byte to continue execution correctly. Even thought replaced it replaced it replaces a byte of a instruction opcode, the debugger displays the correct byte to the user to readibilaty purposes. This additional byte changes the checksum in memory when the malware application attemps to verify its integrity. Viruses can use hardware debug registers (```DR0```-```DR7```) on Intel architectures to cause problems to some debugers. Indentically some virus are self-annealling, witch means the can detect and correct small errors (correct or disable breakpoint and thereby exibit anti-debugging characteristics (see Yankee Doodle virus)
+
+
