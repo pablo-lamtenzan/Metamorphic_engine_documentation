@@ -221,4 +221,8 @@ A dirrect aproach to invoque an operating systhem application fuction (hwo defin
 
 ###### 3.2.5) Debugger offuscation
 
+Other anti-debug tecniques don't use hooking, detection or ressource consumption. Many debugger can not follow a program during exeption handler execution, which is another state where debugger lose information and fail. Obfuscating the file format or the entry point can confuse debuggers that work only with standard formats. In short any tecnique that causes to tracee the wrong execution (or not follow the) path sould result in the debugger losing state and failing.
+
+##### 3.3) Anti-emulation
+
 
