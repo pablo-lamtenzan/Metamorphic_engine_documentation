@@ -186,3 +186,9 @@ The exemple consist on inline assembly and a print stayment, the program perform
  
  // Is possible to fool recursive traversal disassemblys ussing two equaly viable options or an abnormal program execution flow
  ```
+ 
+ ##### 3.2) Code offuscation
+ 
+ The quality of the offuscations tactics can be mesurated by potency, resistence (against automated desoffuscator) , stealth (how is difficult to separe offuscate code form not offuscated) and cost (in the execution time). There are 4 categories of offuscation transformation: layout, data, control, preventive having each one their potency, resistance, stealth and cost. The goal of this categories are to mesure the level of offuscation. 
+ 
+ This is interesting but i've writting this for educationals purposes and i need others humans to understand my work ...
