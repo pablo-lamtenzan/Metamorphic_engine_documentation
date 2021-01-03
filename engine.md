@@ -128,8 +128,39 @@ PUSH %ECX ------------> PUSH %ECX
 ADD %ESI, %EBX -------> MOV %EAX, 0F
 ```
 
+##### More tecniques
+- Recursion iteration (using recursive solutions over iterating)
+- Morphing of instruction in pipeline (changing instructions already fetched)
+- Execute flow altering (change the execute flow (ex: executing in the heap))
+- Opcode shifting (calling/jumping into midle instruction)
+
 ##### 2.2.6) Formal Grammar Mutation
 The formalization of many existing tecniques is named Formal Grammar Mutation where any instruction can be followed by any other instruction but appying some grammar rules it can perform hight degree of metamorphism.
+
+##### 2.2.7) Morph points
+
+A morph point is a locate space in the code that has been designed to morphed. There are conceptually two types of metamorphic engines: soldiers and scouts. Soldier takes direct orders and the program must inform them of the exact location (via relative/absolute addr) of the modification targets. Scouts on the other hand, find the morph points using a search algorithm. Both are useful and have their unique advantages over the other. Soldiers are capable to precise modifications, such as reversing the conditions of a single branch stayment while leaving the others alone. A scout implementation requires less work to integrate because the developper does not have to inform to the metamorphic engine of new porth point location if the compiler relocates them after each compilation. But using a scout could be more dificult (cause it can damage protected statments != morph points)
+
+There are several types of morph points for opcode shifting, the stealth is a way to clasify them, a stealty morph point for opcode shift absorbs one or more subsequent instructions without causing riple effects in the disassembly. And example of a stealthy morph point would be a one byte opcode shift that comsumes a one-byte ```PUSH``` instruction. A semi-stealty morph point does not absorb instructions, the opcode shift does not align perfectly the instruction boundary of one of the original instructions. Another aproach is clasify by morph point address consitency. In a homogenious group all the morph points have to same implementation. A developper likely does not want identical morph points protecting a program, because the atacker can devellop a tool that automatically find and destroy them. To avoid this consistency, a developer can choose a heterogenious group of form points. The metamorphic engine could also randomly alter the morph points implementation durring runtime.
+
+To shift opcodes, the program must meet two criteria.
+- The morph point construct never allow the false opcode to execute (program crashes if it happends, the morph point is exposed
+- The morph point must be beliveble to the disassambler
+
+``` 
+// Taken from a447014.pdf p 53 and recommented to read !
+
+Morph points execution for 1000M iterations
+
+Morph point implementation    |     Average execution time
+                              |
+JUMP ro Label                 |     7.003ns
+Opaque Branch                 |     20.053ns
+Jump address calculation      |     23.053ns
+Function Call                 |     20,547ns
+```
+
+MUST READ a447014.pdf starting at p52 to end this section!!!
 
 #### 3) More offuscation tecniques
 
